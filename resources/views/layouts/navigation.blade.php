@@ -15,6 +15,11 @@
                     <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
                         {{ __('Dashboard') }}
                     </x-nav-link>
+                    @if (auth()->user()->role === 'admin')
+                    <x-nav-link :href="route('admin.dashboard')" :active="request()->routeIs('admin.dashboard')">
+                        {{ __('Admin Dashboard') }}
+                    </x-nav-link>                    
+                    @endif
                 </div>
             </div>
 
@@ -34,6 +39,19 @@
                     </x-slot>
 
                     <x-slot name="content">
+
+                        @if (auth()->user()->role === 'admin')
+
+                            <div class="block w-full px-4 py-2 text-start text-xs leading-5 text-indigo-500 dark:text-indigo-300 transition duration-150 ease-in-out">ADMIN</div>
+                            
+                            <x-dropdown-link :href="route('admin.dashboard')">
+                                {{ __('vuoto') }}
+                            </x-dropdown-link>
+
+                        @endif
+                        
+                        <div class="block w-full px-4 py-2 text-start text-xs leading-5 text-indigo-500 dark:text-indigo-300 transition duration-150 ease-in-out">USER</div>
+
                         <x-dropdown-link :href="route('profile.edit')">
                             {{ __('Profile') }}
                         </x-dropdown-link>
@@ -48,6 +66,7 @@
                                 {{ __('Log Out') }}
                             </x-dropdown-link>
                         </form>
+                        
                     </x-slot>
                 </x-dropdown>
             </div>
