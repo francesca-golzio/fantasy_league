@@ -2,11 +2,27 @@
 
 use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\ProfileController;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
-/* Guest Homepage */
+/* Root redirect based on auth state/role */
 Route::get('/', function () {
-    return view('welcome');
+
+    /* IF Guest - Redirect to Login */
+    if (!Auth::user()) {
+        return redirect()->route('login');
+
+    } else {
+
+        /* IF Admin - Redirect to Admin Dashboard */
+        if (Auth::user()->role == 'admin') {
+            return redirect()->route('admin.dashboard');
+        }
+
+        /* ELSE - User Redirect to User Dashboard */
+        return redirect()->route('dashboard');
+    }
+
 });
 
 /* User Dashboard */
