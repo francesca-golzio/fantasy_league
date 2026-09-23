@@ -16,7 +16,7 @@ class IsAdmin
      */
     public function handle(Request $request, Closure $next): Response
     {
-        if (!$request->user() || $request->user()->role !== UserRole::Admin) {
+        if (!$request->user() || $request->user()?->IsAdmin()) {
             abort(403, 'access denied');
         }
     
