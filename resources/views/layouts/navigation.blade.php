@@ -1,3 +1,5 @@
+@use('App\UserRole')
+
 <nav x-data="{ open: false }" class="bg-white dark:bg-gray-800 border-b border-gray-100 dark:border-gray-700">
     <!-- Primary Navigation Menu -->
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -15,7 +17,7 @@
                     <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
                         {{ __('Dashboard') }}
                     </x-nav-link>
-                    @if (auth()->user()->role === 'admin')
+                    @if (auth()->user()->role === UserRole::Admin)
                     <x-nav-link :href="route('admin.dashboard')" :active="request()->routeIs('admin.dashboard')">
                         {{ __('Admin Dashboard') }}
                     </x-nav-link>                    
@@ -40,7 +42,7 @@
 
                     <x-slot name="content">
 
-                        @if (auth()->user()->role === 'admin')
+                        @if (auth()->user()->role === UserRole::Admin)
 
                             <div class="block w-full px-4 py-2 text-start text-xs leading-5 text-indigo-500 dark:text-indigo-300 transition duration-150 ease-in-out">ADMIN</div>
                             

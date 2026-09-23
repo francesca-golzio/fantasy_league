@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\ProfileController;
+use App\UserRole;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -15,7 +16,7 @@ Route::get('/', function () {
     } else {
 
         /* IF Admin - Redirect to Admin Dashboard */
-        if (Auth::user()->role == 'admin') {
+        if (Auth::user()->role == UserRole::Admin) {
             return redirect()->route('admin.dashboard');
         }
 
