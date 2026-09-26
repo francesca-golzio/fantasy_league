@@ -33,11 +33,19 @@ class User extends Authenticatable
         ];
     }
 
+    /**
+     * returns true if the user is an admin
+     * @return bool
+     */
     public function isAdmin(): bool
     {
         return $this->role === UserRole::Admin;
     }
 
+    /**
+     * returns true if the user is a player
+     * @return bool
+     */
     public function isPlayer(): bool
     {
         return $this->role === UserRole::Player;
