@@ -1,0 +1,99 @@
+<?php
+
+namespace App\Http\Controllers\Admin\Characters;
+
+use App\Http\Controllers\Controller;
+use App\Models\Character;
+use Illuminate\Http\Request;
+use Illuminate\Support\Str;
+
+class CharacterController extends Controller
+{
+    /**
+     * Display a listing of the resource.
+     */
+    public function index()
+    {
+        $characters = Character::all();
+
+        return view('admin.characters.index', compact('characters'));
+    }
+
+    /**
+     * Show the form for creating a new resource.
+     */
+    public function create()
+    {
+        return view('admin.characters.create');
+    }
+
+    /**
+     * Store a newly created resource in storage.
+     */
+    public function store(Request $request)
+    {
+        $data = $request->all();
+
+        $newCharacter = new Character();
+        $newCharacter->name = $data['name'];
+        $newCharacter->surname = $data['surname'];
+        $newCharacter->cost = $data['cost'];
+        $newCharacter->description = $data['description'];
+        $newCharacter->img_profile = $data['img_profile'];
+        $newCharacter->img_full = $data['img_full'];
+        $newCharacter->slug = Str::slug(Str::lower($newCharacter->name . ' ' . $newCharacter->surname), '-');
+
+        $newCharacter->save();
+
+        return redirect()->route('admin.characters.show', $newCharacter);
+    }
+
+    /**
+     * Display the specified resource.
+     */
+    public function show(Character $character)
+    {
+        return view('admin.characters.show', compact('character'));
+        
+    }
+
+    /**
+     * Show the form for editing the specified resource.
+     */
+    public function edit(Character $character)
+    {
+        return view('admin.characters.edit', compact('character'));
+    }
+
+    /**
+     * Update the specified resource in storage.
+     */
+    public function update(Request $request, Character $character)
+    {
+        $data = $request->all();
+
+        $character->name = $data['name'];
+        $character->surname = $data['surname'];
+        $character->cost = $data['cost'];
+        $character->description = $data['description'];
+        $character->img_profile = $data['img_profile'];
+        $character->img_full = $data['img_full'];
+        $character->slug = Str::slug(Str::lower($character->name . ' ' . $character->surname), '-');
+
+        $character->save();
+
+        //@dd($character);
+        return redirect()->route('admin.characters.show', $character);
+    }
+
+    /**
+     * Remove the specified resource from storage.
+     */
+    public function destroy(Character $character)
+    {
+        $character->delete();
+
+    //@dd($character);
+        return redirect()->route('admin.characters.index');
+    }
+}

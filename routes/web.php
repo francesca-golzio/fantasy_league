@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Admin\AdminController;
+use App\Http\Controllers\Admin\Characters\CharacterController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -43,7 +44,11 @@ Route::middleware(['auth', 'verified', 'admin'])
     ->name('admin.')
     ->prefix('admin')
     ->group(function () {
+        /* Admin */
         Route::get('/dashboard', [AdminController::class, 'index'])->name('dashboard');
+        
+        /* Characters */
+        Route::resource('characters', CharacterController::class);
 });
 
 require __DIR__.'/auth.php';
