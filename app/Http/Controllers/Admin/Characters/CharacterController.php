@@ -89,13 +89,30 @@ class CharacterController extends Controller
         $character->surname = $data['surname'];
         $character->cost = $data['cost'];
         $character->description = $data['description'];
-        $character->img_profile = $data['img_profile'];
-        $character->img_full = $data['img_full'];
+
+        if (array_key_exists('img_profile', $data)) {
+
+            if ($character->img_profile) {
+                Storage::delete($character->img_profile);
+            }
+            $img_url = Storage::putFile('characters', $data['img_profile']);
+            $character->img_profile = $img_url;
+        }
+
+        if (array_key_exists('img_full', $data)) {
+
+            if ($character->img_full) {
+                Storage::delete($character->img_full);
+            }
+            $img_url = Storage::putFile('characters', $data['img_full']);
+            $character->img_full = $img_url;
+        }
+
         $character->slug = Str::slug(Str::lower($character->name . ' ' . $character->surname), '-');
 
+        //@dd($character);
         $character->save();
 
-        //@dd($character);
         return redirect()->route('admin.characters.show', $character);
     }
 
@@ -104,6 +121,12 @@ class CharacterController extends Controller
      */
     public function destroy(Character $character)
     {
+        if ($character->img_profile) {
+            Storage::delete($character->img_profile);
+        }
+        if ($character->img_full) {
+            Storage::delete($character->img_full);
+        }
         $character->delete();
 
     //@dd($character);
