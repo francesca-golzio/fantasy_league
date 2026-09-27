@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin\Characters;
 use App\Http\Controllers\Controller;
 use App\Models\Character;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 
 class CharacterController extends Controller
@@ -39,9 +40,21 @@ class CharacterController extends Controller
         $newCharacter->surname = $data['surname'];
         $newCharacter->cost = $data['cost'];
         $newCharacter->description = $data['description'];
-        $newCharacter->img_profile = $data['img_profile'];
-        $newCharacter->img_full = $data['img_full'];
+
+        if (array_key_exists('img_profile', $data)) {
+            $img_url = Storage::putFile('characters', $data['img_profile']);
+            $newCharacter->img_profile = $img_url;
+        }
+
+        if (array_key_exists('img_full', $data)) {
+            $img_url = Storage::putFile('characters', $data['img_full']);
+            $newCharacter->img_full = $img_url;
+        }
+
+
         $newCharacter->slug = Str::slug(Str::lower($newCharacter->name . ' ' . $newCharacter->surname), '-');
+
+        //@dd($newCharacter);
 
         $newCharacter->save();
 

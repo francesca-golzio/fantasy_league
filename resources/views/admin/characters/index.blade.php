@@ -22,7 +22,7 @@
             <tbody>
             @foreach ($characters as $character)
                 <tr>
-                    <td class="py-3 px-3"><img src="{{ $character->img_profile }}" alt="{{ $character->getFullName() }}" class="rounded-full size-[30px]"></td>
+                    <td class="py-3 px-3"><img src="{{ asset('storage/' . $character->img_profile) }}" alt="{{ $character->getFullName() }}" class="rounded-full size-[30px]"></td>
                     <td class="py-3 px-3">{{ $character->getFullName() }}</td>
                     <td class="py-3 px-3">{{ $character->cost }}</td>
                     <td class="py-3 px-3"><x-show-button href="{{ route('admin.characters.show', $character) }}"></x-edit-button></td>

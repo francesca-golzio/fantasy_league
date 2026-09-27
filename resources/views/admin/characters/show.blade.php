@@ -3,7 +3,7 @@
     <x-slot name="header">
         <div class="flex gap-5 flex-wrap items-center text-xl text-gray-800 dark:text-gray-200 leading-tight">
             <span>{{ __('Character: ') }}</span>
-            <div><img src="{{ $character?->img_profile }}" alt="{{ $character?->getFullName() }}" class="rounded-full size-[50px]"></div>
+            <div><img src="{{ asset('storage/' . $character?->img_profile) }}" alt="{{ $character?->getFullName() }}" class="rounded-full size-[50px]"></div>
             <h2 class="font-semibold">
                 {{ $character?->getFullName() }}
             </h2>
@@ -37,7 +37,7 @@
 
         <div class="">
             <img 
-                src="{{ $character?->img_full }}" 
+                src="{{ asset('storage/' . $character?->img_full) }}" 
                 alt="{{ $character?->getFullName() }}" 
                 class="rounded-xl max-h-[600px] outline outline-[12px] outline-indigo-900 mb-12">
         </div>
