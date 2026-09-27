@@ -6,7 +6,7 @@
       </h2>
   </x-slot>
 
-  <x-crud.create-form route="route('admin.characters.store')" entity="Character">
+  <x-crud.create-form :route="route('admin.characters.store')" entity="Character">
     
     <x-crud.create-input type="text" name="name" placeholder="name" class="w-full sm:w-1/3"/>
     
