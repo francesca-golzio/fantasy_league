@@ -30,7 +30,7 @@
 
             <div class="flex gap-5 my-6">
                 <x-edit-button href="{{ route('admin.characters.edit', $character) }}"></x-edit-button>   
-                <x-delete-button :entity="$character"></x-delete-button>
+                <x-delete-button :entity="$character"  modal_name="confirm-{{$character->slug}}-deletion"></x-delete-button>
             </div>
 
         </div>

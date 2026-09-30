@@ -27,7 +27,7 @@
                     <td class="py-3 px-3">{{ $character->cost }}</td>
                     <td class="py-3 px-3"><x-show-button href="{{ route('admin.characters.show', $character) }}"></x-edit-button></td>
                     <td class="py-3 px-3"><x-edit-button href="{{ route('admin.characters.edit', $character) }}"></x-edit-button></td>
-                    <td class="py-3 px-3"><x-delete-button :entity="$character"></x-delete-button></td>
+                    <td class="py-3 px-3"><x-delete-button :entity="$character" modal_name="confirm-{{$character->slug}}-deletion"></x-delete-button></td>
                 </tr>
             @endforeach
             </tbody>
