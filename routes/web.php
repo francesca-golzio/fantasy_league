@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Admin\Characters\CharacterController;
+use App\Http\Controllers\Admin\EventTypeController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -49,6 +50,9 @@ Route::middleware(['auth', 'verified', 'admin'])
         
         /* Characters */
         Route::resource('characters', CharacterController::class);
+
+        /* Events */
+        Route::resource('events', EventTypeController::class);
 });
 
 require __DIR__.'/auth.php';
