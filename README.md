@@ -7,7 +7,7 @@ In the spirit of the FantaGOT, I've created a fantasy league like Fantasy footba
 
 Fanta[NomeMondo] is a mobile first web app that allows the user to create and manage a team of characters, score points based on in-story events, and compete in private leagues.
 
-The app is built with a Laravel backend and a React frontend, and features a REST API and a protected admin area for managing entities and game events.
+The app is built with Laravel and features a REST API and a protected admin area for managing entities and game events.
 
 --------------
 
