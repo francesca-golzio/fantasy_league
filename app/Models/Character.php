@@ -8,6 +8,11 @@ class Character extends Model
 {
     protected $fillable = ['name','surname', 'description', 'cost', 'img_profile', 'img_full'];
 
+    public function abilities()
+    {
+        return $this->hasMany(Ability::class);
+    }
+
     /**
      * returns the fullname of the character ('Name Surname')
      * @return string

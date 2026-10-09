@@ -20,6 +20,8 @@
         <x-dashboard-entity-panel entity="characters" list_route="admin.characters.index" create_route="admin.characters.create" />
 
         <x-dashboard-entity-panel entity="events" list_route="admin.events.index" create_route="admin.events.create" />
+
+        <x-dashboard-entity-panel entity="abilities" list_route="admin.abilities.index" create_route="admin.abilities.create" />
         
 
 

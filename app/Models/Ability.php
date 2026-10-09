@@ -13,5 +13,15 @@ class Ability extends Model
             'kind' => AbilityKind::class,
         ];
     }
+
+    public function character()
+    {
+        return $this->belongsTo(Character::class);
+    }
+
+    public function eventType()
+    {
+        return $this->belongsTo(EventType::class);
+    }
 }
 

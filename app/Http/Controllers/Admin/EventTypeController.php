@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Ability;
 use App\Models\EventType;
 use Illuminate\Http\Request;
 
@@ -23,7 +24,9 @@ class EventTypeController extends Controller
      */
     public function create()
     {
-        return view('admin.events.create');
+        $abilities = Ability::all();
+
+        return view('admin.events.create', compact('abilities'));
     }
 
     /**
@@ -59,7 +62,9 @@ class EventTypeController extends Controller
      */
     public function edit(EventType $event)
     {
-        return view('admin.events.edit', compact('event'));
+        $abilities = Ability::all();
+
+        return view('admin.events.edit', compact('event', 'abilities'));
     }
 
     /**

@@ -14,6 +14,8 @@ return new class extends Migration
         Schema::create('abilities', function (Blueprint $table) {
             $table->id();
 
+            $table->foreignId('character_id')->constrained()->onDelete('cascade');
+            $table->foreignId('event_type_id')->constrained()->onDelete('cascade');
             $table->string('kind');
             $table->integer('factor');
 

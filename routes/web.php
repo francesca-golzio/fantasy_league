@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Admin\AdminController;
+use App\Http\Controllers\Admin\Characters\AbilityController;
 use App\Http\Controllers\Admin\Characters\CharacterController;
 use App\Http\Controllers\Admin\EventTypeController;
 use App\Http\Controllers\ProfileController;
@@ -50,6 +51,7 @@ Route::middleware(['auth', 'verified', 'admin'])
         
         /* Characters */
         Route::resource('characters', CharacterController::class);
+        Route::resource('abilities', AbilityController::class);
 
         /* Events */
         Route::resource('events', EventTypeController::class);

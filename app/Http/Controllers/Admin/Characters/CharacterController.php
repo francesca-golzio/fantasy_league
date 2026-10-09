@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin\Characters;
 
 use App\Http\Controllers\Controller;
+use App\Models\Ability;
 use App\Models\Character;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
@@ -25,6 +26,8 @@ class CharacterController extends Controller
      */
     public function create()
     {
+        $abilities = Ability::all();
+
         return view('admin.characters.create');
     }
 
@@ -75,7 +78,9 @@ class CharacterController extends Controller
      */
     public function edit(Character $character)
     {
-        return view('admin.characters.edit', compact('character'));
+        $abilities = Ability::all();
+
+        return view('admin.characters.edit', compact('character', 'abilities'));
     }
 
     /**

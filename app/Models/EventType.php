@@ -13,4 +13,9 @@ class EventType extends Model
             'type' => EventTypes::class,
         ];
     }
+
+    public function abilities()
+    {
+        return $this->hasMany(Ability::class);
+    }
 }
