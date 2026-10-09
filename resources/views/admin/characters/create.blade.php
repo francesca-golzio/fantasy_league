@@ -17,7 +17,7 @@
     <x-crud.create-textarea name="description" placeholder="description" class="w-full"/>
 
     <div class="flex gap-3 justify-end w-full">
-      <label for="img_profile" class="uppercase text-sm text-emerald-700 dark:text-emerald-500">portrait&nbsp;image</label>
+      <label for="img_profile" class="uppercase text-sm text-emerald-700 dark:text-emerald-500">portrait image</label>
       <x-crud.create-input type="file" name="img_profile"/>
     </div>
 
