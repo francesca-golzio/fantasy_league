@@ -15,8 +15,8 @@
 
     <!-- Event Type -->
     <div class="flex gap-6">
-      <x-crud.edit-input-radio name="type" value="environmental" label="environmental" :checked="$event->type->value == 'environmental'" />
-      <x-crud.edit-input-radio name="type" value="personal" label="personal" :checked="old('type', $event->type->value == 'personal')"/>
+      <x-crud.edit-input-radio name="type" value="environmental" label="environmental" :checked="old('type', $event->type->value) == 'environmental'" />
+      <x-crud.edit-input-radio name="type" value="personal" label="personal" :checked="old('type', $event->type->value) == 'personal'"/>
     </div>
 
     <!-- Event Points -->
