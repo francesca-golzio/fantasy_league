@@ -4,7 +4,7 @@ use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Admin\Characters\AbilityController;
 use App\Http\Controllers\Admin\Characters\CharacterController;
 use App\Http\Controllers\Admin\EventTypeController;
-use App\Http\Controllers\Auth\Leagues\LeagueController;
+use App\Http\Controllers\LeagueController;
 use App\Http\Controllers\ProfileController;
 use App\UserRole;
 use Illuminate\Support\Facades\Auth;
@@ -54,5 +54,11 @@ Route::middleware(['auth', 'verified', 'admin'])
         /* Events */
         Route::resource('events', EventTypeController::class);
 });
+        
+/* Players &Admin Routes */
+Route::middleware(['auth', 'verified'])
+    ->group(function () {
+        Route::resource('leagues', LeagueController::class);
+    });
 
 require __DIR__.'/auth.php';
