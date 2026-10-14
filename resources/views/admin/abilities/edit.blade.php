@@ -2,7 +2,7 @@
 
   <x-slot name="header">
     <h2 class="font-semibold text-xl text-indigo-950 dark:text-indigo-300 leading-tight">
-      {{ __('Add a New Ability') }}
+      {{ __('Update the Ability') }}
     </h2>
   </x-slot>
 

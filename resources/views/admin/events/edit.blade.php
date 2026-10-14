@@ -3,7 +3,7 @@
   <!-- Page Header -->
   <x-slot name="header">
     <h2 class="font-semibold text-xl text-indigo-950 dark:text-indigo-300 leading-tight">
-      {{ __('Add a New Event') }}
+      {{ __('Update the Event') }}
     </h2>
   </x-slot>
 

@@ -32,7 +32,7 @@ use App\EventTypes;
                         @endif
                     </td>
                     <td class="py-3 px-3 text-lg">{{ $event->name }}</td>
-                    <td class="py-3 px-3"><x-show-button href="{{ route('admin.events.show', $event) }}"></x-edit-button></td>
+                    <td class="py-3 px-3"><x-show-button href="{{ route('admin.events.show', $event) }}"></x-show-button></td>
                     <td class="py-3 px-3 max-md:hidden"><x-edit-button href="{{ route('admin.events.edit', $event) }}"></x-edit-button></td>
                     <td class="py-3 px-3 max-md:hidden"><x-delete-button :entity="$event" modal_name="confirm-event-{{$event->id}}-deletion"></x-delete-button></td>
                 </tr>

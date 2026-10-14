@@ -25,7 +25,7 @@
                     <td class="py-3 px-3">{{ $ability->character->getFullName() }}</td>
                     <td class="py-3 px-3">{{ $ability->kind }}</td>
                     <td class="py-3 px-3">{{ $ability->factor }}</td>
-                    <td class="py-3 px-3"><x-show-button href="{{ route('admin.abilities.show', $ability) }}"></x-edit-button></td>
+                    <td class="py-3 px-3"><x-show-button href="{{ route('admin.abilities.show', $ability) }}"></x-show-button></td>
                     <td class="py-3 px-3"><x-edit-button href="{{ route('admin.abilities.edit', $ability) }}"></x-edit-button></td>
                     <td class="py-3 px-3"><x-delete-button :entity="$ability" modal_name="confirm-ability-{{$ability->id}}-deletion"></x-delete-button></td>
                 </tr>
