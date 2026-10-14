@@ -23,7 +23,7 @@
 
         <x-dashboard-entity-panel entity="abilities" list_route="admin.abilities.index" create_route="admin.abilities.create" />
         
-
+        <x-dashboard-entity-panel entity="leagues" list_route="leagues.index" create_route="leagues.create" />
 
     </div>
     
