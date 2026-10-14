@@ -4,32 +4,30 @@ use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Admin\Characters\AbilityController;
 use App\Http\Controllers\Admin\Characters\CharacterController;
 use App\Http\Controllers\Admin\EventTypeController;
+use App\Http\Controllers\Auth\Leagues\LeagueController;
 use App\Http\Controllers\ProfileController;
+use App\UserRole;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
-/* Root redirect based on auth state/role */
+/* Root redirect */
 Route::get('/', function () {
 
-    /* IF Guest - Redirect to Login */
-    if (!Auth::user()) {
-        return redirect()->route('login');
-
-    } else {
-
-        /* IF Admin - Redirect to Admin Dashboard */
-        if (Auth::user()?->isAdmin()) {
-            return redirect()->route('admin.dashboard');
-        }
-
-        /* ELSE - User Redirect to User Dashboard */
-        return redirect()->route('dashboard');
-    }
+    return Auth::check() 
+        /* IF Guest - Redirect to Login */
+        ? redirect()->route('login') 
+        /* ELSE - Redirect to Dashboard */
+        : redirect()->route('dashboard');
 
 });
 
-/* User Dashboard */
+/* Dashboard role redirect */
 Route::get('/dashboard', function () {
+    /* IF Admin - Redirect to Admin Dashboard */
+    if (Auth::user()->role == UserRole::Admin) {
+        return redirect()->route('admin.dashboard');
+    }
+    /* ELSE - Redirect to User Dashboard */
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
