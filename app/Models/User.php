@@ -10,6 +10,7 @@ use Illuminate\Database\Eloquent\Attributes\Fillable;
 use Illuminate\Database\Eloquent\Attributes\Hidden;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Database\Eloquent\Relations\hasMany;
 use Illuminate\Notifications\Notifiable;
 
 #[Fillable(['name', 'email', 'password'])]
@@ -20,7 +21,7 @@ class User extends Authenticatable
     use HasFactory, Notifiable;
 
     /**
-     * Get the attributes that should be cast.
+     * Handles the casting of attributes.
      *
      * @return array<string, string>
      */
@@ -34,7 +35,7 @@ class User extends Authenticatable
     }
 
     /**
-     * returns true if the user is an admin
+     * Returns `true` if the user is an `admin`
      * @return bool
      */
     public function isAdmin(): bool
@@ -49,6 +50,15 @@ class User extends Authenticatable
     public function isPlayer(): bool
     {
         return $this->role === UserRole::Player;
+    }
+
+    /**
+     * Returns the leagues owned by the user
+     * @return HasMany
+     */
+    protected function ownedLeagues() : HasMany
+    {
+        return $this->hasMany(League::class);
     }
 
 }
