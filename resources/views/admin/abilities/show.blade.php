@@ -1,6 +1,6 @@
 @php
 
-use App\AbilityKind;
+use App\Enums\AbilityKind;
 
 @endphp
 

@@ -1,5 +1,5 @@
 @php
-use App\EventTypes;
+use App\Enums\EventTypes;
 @endphp
 
 <x-app-layout>

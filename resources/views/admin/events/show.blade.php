@@ -1,6 +1,6 @@
 @php
 
-use App\EventTypes;
+use App\Enums\EventTypes;
 
 function cropTitle($title) {
 if (strlen($title) > 25) {

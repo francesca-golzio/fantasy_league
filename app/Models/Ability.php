@@ -2,7 +2,7 @@
 
 namespace App\Models;
 
-use App\AbilityKind;
+use App\Enums\AbilityKind;
 use Illuminate\Database\Eloquent\Model;
 
 class Ability extends Model

@@ -6,7 +6,7 @@ use App\Http\Controllers\Admin\Characters\CharacterController;
 use App\Http\Controllers\Admin\EventTypeController;
 use App\Http\Controllers\LeagueController;
 use App\Http\Controllers\ProfileController;
-use App\UserRole;
+use App\Enums\UserRole;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 

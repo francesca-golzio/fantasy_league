@@ -2,7 +2,7 @@
 
 namespace App\Models;
 
-use App\EventTypes;
+use App\Enums\EventTypes;
 use Illuminate\Database\Eloquent\Model;
 
 class EventType extends Model
