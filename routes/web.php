@@ -1,8 +1,8 @@
 <?php
 
 use App\Http\Controllers\Admin\AdminController;
-use App\Http\Controllers\Admin\Characters\AbilityController;
-use App\Http\Controllers\Admin\Characters\CharacterController;
+use App\Http\Controllers\Admin\AbilityController;
+use App\Http\Controllers\Admin\CharacterController;
 use App\Http\Controllers\Admin\EventTypeController;
 use App\Http\Controllers\LeagueController;
 use App\Http\Controllers\ProfileController;
