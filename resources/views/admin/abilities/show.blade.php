@@ -37,10 +37,10 @@ use App\Enums\AbilityKind;
             <div class="uppercase">{{ $ability?->kind }}</div>
             
             <div class="flex nowrap justify-center items-center gap-1 border-[2px] border-indigo-500 aspect-square rounded-full p-3">
-              @if ($ability?->kind === AbilityKind::MULTIPLIER)
+              @if ($ability?->kind === AbilityKind::Multiplier)
               <x-heroicon-s-x-mark class="w-6 h-6 text-indigo-500" />
               <div class="text-xl text-center">{{ $ability?->factor }}</div>
-              @elseif ($ability?->kind === AbilityKind::IMMUNITY)
+              @elseif ($ability?->kind === AbilityKind::Immunity)
               <x-heroicon-s-shield-check class="w-6 h-6 text-indigo-500" />
               @endif
             </div>

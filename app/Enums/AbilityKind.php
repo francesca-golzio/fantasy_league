@@ -4,6 +4,6 @@ namespace App\Enums;
 
 enum AbilityKind :string
 {
-    case MULTIPLIER = 'multiplier';
-    case IMMUNITY = 'immunity';
+    case Multiplier = 'multiplier';
+    case Immunity = 'immunity';
 }
